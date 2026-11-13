@@ -1,7 +1,7 @@
 import unittest
 from llm_client import LLMClient
 
-# Fake provider for testing
+
 class FakeProvider:
 
     def generate(self, prompt):

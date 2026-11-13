@@ -2,14 +2,14 @@ from abc import ABC, abstractmethod
 from google import genai
 import requests
 
-# Common interface
+
 class LLMProvider(ABC):
 
     @abstractmethod
     def generate(self, prompt):
         pass
 
-# Gemini cloud provider
+
 class GeminiProvider(LLMProvider):
 
     def __init__(self, api_key):
@@ -22,7 +22,7 @@ class GeminiProvider(LLMProvider):
         )
         return response.text
 
-# Ollama local provider
+
 class OllamaProvider(LLMProvider):
 
     def __init__(self, model="llama3.2"):
@@ -43,7 +43,7 @@ class OllamaProvider(LLMProvider):
         response.raise_for_status()
         return response.json()["response"]
 
-# Common client
+
 class LLMClient:
 
     def __init__(self, provider):
